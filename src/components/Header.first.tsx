@@ -44,8 +44,6 @@ const HeaderFirst = () => {
     useEffect(() => {
         console.log(direction);
         console.log(scrollY);
-
-
     }, [scrollY, direction]);
 
     return <motion.header className={styles.root}>
@@ -54,11 +52,14 @@ const HeaderFirst = () => {
                 <img src={logoWhite} alt="logo"/>
             </motion.a>
             <motion.div className={styles.buttons}>
-                <motion.button>{"Магазин"}</motion.button>
                 <motion.button>{"Купить билет"}</motion.button>
+                <motion.button>{"Магазин"}</motion.button>
+
             </motion.div>
         </motion.div>
-        <motion.div className={styles.menu}>
+        <motion.div
+
+            className={styles.menu}>
             {
                 navElemenet.map((item, index) => <motion.a href={item.link} key={index}>
                     {item.title}
