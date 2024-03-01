@@ -1,0 +1,41 @@
+.root {
+  width: 80%;
+  max-width: 2400px;
+  height: 72px;
+  border-radius: 8px;
+  position: fixed;
+  top: 10px;
+  z-index: 10;
+  display: flex;
+  padding: 0 14px;
+}
+
+.logo {
+  height: 100%;
+  display: flex;
+  img {
+    width: 220px;
+  }
+}
+
+.nav {
+  width: 80%;
+  max-width: 2400px;
+  height: 72px;
+  border-radius: 8px;
+  position: fixed;
+  top: 10px;
+  z-index: 10;
+  display: flex;
+  padding: 0 14px;
+  display: flex;
+  a {
+    color: white;
+    padding: 0 4px;
+    width: fit-content;
+  }
+}
+
+.menu {
+
+}

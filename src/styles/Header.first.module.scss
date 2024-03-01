@@ -1,0 +1,52 @@
+.root {
+  width: 90%;
+  max-width: 2400px;
+  border-radius: 8px;
+  position: fixed;
+  top: 10px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.2);
+  padding: 0 14px;
+  a {
+    cursor: pointer;
+  }
+
+  .header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    border-radius: 8px 8px 0  0;
+    height: 65px;
+    align-items: center;
+    .buttons {
+      button {
+        cursor: pointer;
+        padding: 10px 15px;
+        border-radius: 8px;
+        margin-right: 14px;
+        border: 1px white solid;
+        &:last-child {
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  .menu {
+    display: flex;
+    //padding: 0 14px;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    color: white;
+    border-radius: 0  0 8px 8px;
+    height: 30px;
+  }
+}
+
+.logo {
+
+}
