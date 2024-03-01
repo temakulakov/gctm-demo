@@ -20,9 +20,6 @@ const VideoBackground: React.FC<VideoBackgroundProps> = ({ videoUrl }) => {
             </video>
             {/* Пример кнопок для изменения цвета фона */}
             <div style={{ position: 'absolute', top: 0, padding: '10px' }}>
-                {/*<button onClick={() => changeBackgroundColor('black')}>Черный</button>*/}
-                {/*<button onClick={() => changeBackgroundColor('white')}>Белый</button>*/}
-                {/*<button onClick={() => changeBackgroundColor('red')}>Красный</button>*/}
             </div>
         </div>
     );
