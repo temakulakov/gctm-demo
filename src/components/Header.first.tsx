@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { motion } from "framer-motion"
+import {AnimatePresence, motion} from "framer-motion"
 import styles from "styles/Header.first.module.scss";
 import logoWhite from "../uploads/logo-white.svg";
 import useScrollPosition from "../hooks/useScrollPosition";
@@ -60,16 +60,21 @@ const HeaderFirst = () => {
                     </motion.a>)
                 }
             </motion.div>
-            <motion.div
+            <AnimatePresence>
+
+            {selectedItem && <motion.div
+                initial={{opacity: 0, width: "97%", y: 0}}
+                animate={{opacity: 1, width: "100%", y: 30}}
+                exit={{ opacity: 0, width: "97%", y: 0 }}
                 className={styles.panel}
                 onMouseLeave={() => setSelectedItem(null)}>
                 {
                     selectedItem && selectedItem.title
                 }
-            </motion.div>
+            </motion.div>}
+            </AnimatePresence>
 
         </motion.header>
-
     </>
 };
 
