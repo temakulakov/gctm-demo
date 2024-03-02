@@ -4,7 +4,7 @@ import VideoBackground from "./VideoBackground";
 
 const Slider = () => {
     return <div className={styles.root}>
-        <VideoBackground videoUrl="https://intranet.gctm.ru/test/promo.mp4" />
+        <VideoBackground videoUrl="https://www.gctm.ru/img/promo.mp4" />
     </div>
 };
 

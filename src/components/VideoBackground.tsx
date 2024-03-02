@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styles from 'styles/VideoBackground.module.scss';
 
 interface VideoBackgroundProps {
     videoUrl: string; // URL видеофайла
@@ -13,7 +14,7 @@ const VideoBackground: React.FC<VideoBackgroundProps> = ({ videoUrl }) => {
     };
 
     return (
-        <div style={{ backgroundColor, width: '100%', height: '100vh', position: 'relative' }}>
+        <div  className={styles.root}>
             <video autoPlay loop muted style={{ width: '100%', height: '100%', objectFit: 'cover' }}>
                 <source src={videoUrl} type="video/mp4" />
                 Ваш браузер не поддерживает элемент <code>video</code>.

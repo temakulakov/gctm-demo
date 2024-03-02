@@ -1,7 +1,7 @@
 .root {
   width: 90%;
   max-width: 2400px;
-  border-radius: 8px;
+  border-radius: 5px;
   position: fixed;
   top: 10px;
   z-index: 10;
@@ -25,7 +25,7 @@
       button {
         cursor: pointer;
         padding: 10px 15px;
-        border-radius: 8px;
+        border-radius: 5px;
         margin-right: 14px;
         border: 1px white solid;
         &:last-child {
@@ -37,16 +37,38 @@
 
   .menu {
     display: flex;
-    //padding: 0 14px;
     align-items: center;
     justify-content: space-between;
     width: 100%;
     color: white;
     border-radius: 0  0 8px 8px;
     height: 30px;
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 1300px) {
+  .root {
+    width: 97%;
+    font-size: 1.2vw;
   }
 }
 
 .logo {
+
+}
+
+.panel {
+  position: absolute;
+  top: 90px;
+  display: flex;
+  width: 98%;
+  height: fit-content;
+  height: 600px;
+  background: white;
+  border-radius: 5px;
+}
+
+.panel .active {
 
 }
