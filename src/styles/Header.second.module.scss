@@ -1,0 +1,87 @@
+.header {
+  position: fixed;
+  max-width: 2400px;
+  top: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  height: fit-content;
+  z-index: 101;
+}
+
+.head {
+  display: flex;
+  height: 60px;
+  justify-content: space-between;
+  width: 90%;
+  padding: 0 14px;
+  border-radius: 5px 5px 0 0 ;
+
+  backdrop-filter: blur(10px);
+
+  align-items: center;
+
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+
+  transition: background-color, border-radius .1s ease-in-out;
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  width: 200px;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.stylesLogo {
+  margin-bottom: 3px;
+}
+
+.buttonGroup {
+  display: flex;
+  button {
+    border: none;
+    border-radius: 5px;
+    height: fit-content;
+    padding: 10px 12px;
+    cursor: pointer;
+    &:last-child {
+      margin-left: 10px;
+    }
+  }
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 14px;
+  padding-bottom: 8px;
+  width: 90%;
+  border-radius: 0 0 5px 5px;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  transition: background-color .1s ease-in-out;
+}
+
+@media (max-width: 1300px) {
+  .header {
+    width: 97%;
+  }
+  .menu {
+    font-size: 1.2vw;
+  }
+}

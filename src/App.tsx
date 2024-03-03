@@ -1,15 +1,48 @@
-import React from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import styles from "styles/App.module.scss"
 import Header from "./components/Header";
 import Slider from "./components/Slider";
 import HeaderFirst from "./components/Header.first";
+import HeaderSecond from "./components/Header.second";
 
 function App() {
+    const bottomRef = useRef<HTMLDivElement>(null);
+    const [bottomPosition, setBottomPosition] = useState<number>(0);
+    const [ scolled, setScolled] = useState<boolean>(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (bottomRef.current) {
+                const rect = bottomRef.current.getBoundingClientRect();
+                const bottomPosition = rect.bottom;
+                setBottomPosition(bottomPosition);
+            }
+        };
+
+        handleScroll();
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+    useEffect(() => {
+        console.log("--")
+        console.log(bottomPosition)
+        if (bottomPosition > 100) {
+            setScolled(false);
+        } else {
+            setScolled(true);
+        }
+    }, [bottomPosition]);
   return (
     <div className={styles.root}>
-        {/*<Header/>*/}
-        <HeaderFirst/>
-        <Slider/>
+        <HeaderSecond scrolled={scolled}/>
+        <Slider reference={bottomRef}/>
+        <h1>Текст текст текст</h1>
+        <p>Little маленький Текст текст текст</p>
     </div>
   );
 }

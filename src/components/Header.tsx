@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from "react";
 import styles from "styles/Header.module.scss"
 import {useAnimation, motion, AnimatePresence} from "framer-motion";
-import logoWhite from "uploads/logo-white.svg"
-import logoPink from "uploads/logo-pink.svg"
+import logoWhite from "uploads/BMLogoWhite.svg"
 import useScrollPosition from "../hooks/useScrollPosition";
 
 interface INavElemenet {
@@ -36,16 +35,16 @@ const Header = () => {
         if ( scrollY < 400 ) {
             setFullWidth(true);
         }
-        if ( scrollY > 400 && direction === 'down') {
+        if ( scrollY > 400 && direction === 'DOWN') {
             setFullWidth(false);
         }
     }, [scrollY]);
 
     useEffect(() => {
-        if (direction === 'down' && scrollY > 400) {
+        if (direction === 'DOWN' && scrollY > 400) {
             setFullWidth(true);
         }
-        if (direction === 'up') {
+        if (direction === 'UP') {
             setFullWidth(true);
         }
     }, [direction]);

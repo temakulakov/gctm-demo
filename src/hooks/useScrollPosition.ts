@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-type ScrollDirection = 'up' | 'down' | null;
+type ScrollDirection = 'UP' | 'DOWN' | null;
 
 interface ScrollData {
     scrollY: number;
@@ -15,7 +15,7 @@ const useScrollPosition = (): ScrollData => {
 
         const updateScrollPosition = () => {
             const scrollY = window.scrollY;
-            const direction = scrollY > lastScrollY ? 'down' : 'up';
+            const direction = scrollY > lastScrollY ? 'DOWN' : 'UP';
 
             setScrollData({
                 scrollY,
