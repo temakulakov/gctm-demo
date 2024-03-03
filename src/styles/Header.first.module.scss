@@ -8,7 +8,8 @@
   display: flex;
   flex-direction: column;
   backdrop-filter: blur(10px);
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(138, 22, 53, 0.73);
+
   padding: 0 14px;
   a {
     cursor: pointer;
@@ -77,17 +78,23 @@
 .panel {
   position: absolute;
   top: 90px;
-  //left: 50%;
   transform: translateX(-50%);
   display: flex;
   height: fit-content;
-  height: 700px;
   max-height: 600px;
-  background: white;
+  background: rgba(138, 22, 53, 0.73);
+
+  backdrop-filter: blur(10px) !important;
+  color: white;
   border-radius: 5px;
   margin-left: auto;
   margin-right: auto;
   left: 0;
   right: 0;
-  text-align: center;
+  ol {
+    list-style: none;
+    li {
+        padding: 10px 0;
+    }
+  }
 }
