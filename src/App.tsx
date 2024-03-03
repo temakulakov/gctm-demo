@@ -5,6 +5,8 @@ import Slider from "./components/Slider";
 import HeaderFirst from "./components/Header.first";
 import HeaderSecond from "./components/Header.second";
 
+import { motion } from "framer-motion";
+
 function App() {
     const bottomRef = useRef<HTMLDivElement>(null);
     const [bottomPosition, setBottomPosition] = useState<number>(0);
@@ -41,8 +43,15 @@ function App() {
     <div className={styles.root}>
         <HeaderSecond scrolled={scolled}/>
         <Slider reference={bottomRef}/>
-        <h1>Текст текст текст</h1>
-        <p>Little маленький Текст текст текст</p>
+        <motion.div
+            className={styles.container}
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+        >
+            <h1>Текст текст текст</h1>
+            <p>Little маленький Текст текст текст</p>
+        </motion.div>
     </div>
   );
 }

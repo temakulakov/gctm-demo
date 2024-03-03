@@ -9,6 +9,7 @@ interface SliderProps {
 const Slider = ({ reference }: SliderProps) => {
     return <div className={styles.root} ref={reference}>
         <VideoBackground videoUrl="https://www.gctm.ru/img/promo.mp4" />
+
     </div>
 };
 

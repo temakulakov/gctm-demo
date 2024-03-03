@@ -19,13 +19,13 @@ interface HeaderProps {
 const Header = ({scrolled} :HeaderProps) => {
     const [ fullHead, setFullHead ] = React.useState<boolean>(true);
     const [ background, setBackground ] = React.useState<'#8A1635' | 'rgba(138,22,53,0.52)'>('rgba(138,22,53,0.52)');
-    const [ selectedMenu, setSelectedMenu ] = React.useState<INavElemenet | null>(navElemenet[5]);
+    const [ selectedMenu, setSelectedMenu ] = React.useState<INavElemenet | null>(null);
     const { scrollY, direction} = useScrollPosition();
 
     useEffect(() => {
         if (scrolled && direction !== 'UP') {
             setFullHead(false);
-            setSelectedMenu(null)
+            setSelectedMenu(null);
         } else {
             setFullHead(true);
         }

@@ -7,3 +7,11 @@
   height: 300vh;
   margin: 0 auto;
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+
+  width: 90%;
+  margin: 0 auto;
+}
