@@ -58,7 +58,16 @@ const Panel = ({selectedMenu, setSelectedMenu, background}: PanelProps) => {
                                     }
                                 }}
                                 key={index}
-                            >{subTitle.title}</li>)
+                            >{subTitle.title}
+                                {
+                                    subTitle.subTitle &&
+                                    <svg style={{ transform: 'rotate(270deg)'}} xmlns="http://www.w3.org/2000/svg" width="14px" height="19px" fill="none"
+                                         stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                                         viewBox="0 0 24 24">
+                                        <path d="m6 9 6 6 6-6"></path>
+                                    </svg>
+                                }
+                            </li>)
                         }
                     </ul>
 
@@ -67,7 +76,7 @@ const Panel = ({selectedMenu, setSelectedMenu, background}: PanelProps) => {
                             <VerticalLine background={"white"}/>
 
                             <motion.ul
-                            initial={{y: -10, opacity: 0}}
+                                initial={{y: -10, opacity: 0}}
                             animate={{y: 0, opacity: 1}}
                             exit={{y: -10, opacity: 0}}
                             >

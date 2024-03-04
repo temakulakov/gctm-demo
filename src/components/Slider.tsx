@@ -8,7 +8,23 @@ interface SliderProps {
 
 const Slider = ({ reference }: SliderProps) => {
     return <div className={styles.root} ref={reference}>
-        <VideoBackground videoUrl="https://www.gctm.ru/img/promo.mp4" />
+        <div className={styles.controls}>
+            <svg style={{transform: 'rotate(90deg)'}} xmlns="http://www.w3.org/2000/svg" width="27px" height="27px"
+                 fill="none"
+                 stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                 viewBox="0 0 24 24">
+                <path d="m6 9 6 6 6-6"></path>
+            </svg>
+        </div>
+        <div className={styles.controls}>
+            <svg style={{transform: 'rotate(270deg)'}} xmlns="http://www.w3.org/2000/svg" width="27px" height="27px"
+                 fill="none"
+                 stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                 viewBox="0 0 24 24">
+                <path d="m6 9 6 6 6-6"></path>
+            </svg>
+        </div>
+        <div className={styles.loader}></div>
     </div>
 };
 

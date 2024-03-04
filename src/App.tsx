@@ -2,6 +2,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import styles from "styles/App.module.scss"
 import Header from "./components/Header";
 import Slider from "./components/Slider";
+import SliderNew from "components/Slider.new";
 import HeaderFirst from "./components/Header.first";
 import HeaderSecond from "./components/Header.second";
 
@@ -9,6 +10,8 @@ import { motion } from "framer-motion";
 
 import c1 from "uploads/mvp/с1.png";
 import c2 from "uploads/mvp/с2.png";
+
+
 
 function App() {
     const bottomRef = useRef<HTMLDivElement>(null);
@@ -46,6 +49,7 @@ function App() {
     <div className={styles.root}>
         <HeaderSecond scrolled={scolled}/>
         <Slider reference={bottomRef}/>
+        {/*<SliderNew />*/}
         <motion.div
             className={styles.container}
             initial={{ opacity: 0, y: -10 }}
