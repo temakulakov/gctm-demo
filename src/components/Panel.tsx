@@ -39,9 +39,9 @@ const Panel = ({selectedMenu, setSelectedMenu, background}: PanelProps) => {
             }}
             key={selectedMenu.title}
 
-            initial={{y: 10, opacity: 0, width: '97%'}}
+            initial={{y: 27, opacity: 0, width: '95%'}}
             animate={{y: 33, opacity: 1, width: '100%'}}
-            exit={{y: 10, opacity: 0, width: '97%'}}
+            exit={{y: 27, opacity: 0, width: '95%'}}
             className={styles.wrapper}
         >
             <motion.div
