@@ -38,6 +38,7 @@ const Panel = ({selectedMenu, setSelectedMenu, background}: PanelProps) => {
                 setSelectedSecondMenu(null)
             }}
             key={selectedMenu.title}
+
             initial={{y: 10, opacity: 0, width: '97%'}}
             animate={{y: 23, opacity: 1, width: '100%'}}
             exit={{y: 10, opacity: 0, width: '97%'}}
@@ -45,6 +46,7 @@ const Panel = ({selectedMenu, setSelectedMenu, background}: PanelProps) => {
         >
             <motion.div
                 className={styles.panel}
+                // style={{backgroundColor: "#CACBCC"}}
                 style={{backgroundColor: background}}
             >
                 <div className={styles.content}>
@@ -63,7 +65,7 @@ const Panel = ({selectedMenu, setSelectedMenu, background}: PanelProps) => {
 
                     <AnimatePresence>
                         {selectedPanelMenu && selectedPanelMenu.subTitle && <>
-                            <VerticalLine/>
+                            <VerticalLine background={"white"}/>
 
                             <motion.ul
                             initial={{y: -10, opacity: 0}}
