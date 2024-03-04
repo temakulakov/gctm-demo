@@ -111,3 +111,13 @@
     font-size: 1.2vw;
   }
 }
+
+
+.svggs {
+  padding: 10px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.16);
+  }
+}

@@ -8,6 +8,7 @@ import BMLogoRight from "uploads/logo/BMLogoRight.svg";
 import BMText from "uploads/logo/BMText.svg";
 import account from "uploads/icons/account.svg"
 import search from "uploads/icons/search.svg"
+import translate from "uploads/icons/translate.svg"
 
 import { navElemenet } from "../data";
 import {INavElemenet} from "../types/INavElements";
@@ -86,6 +87,20 @@ const Header = ({scrolled}: HeaderProps) => {
                 </motion.a>
                 <motion.div
                     className={styles.buttonGroup}>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" id="translate" width={"34px"} height={"34px"} className={styles.svggs}>
+                            <rect width="256" height="256" fill="none"></rect>
+                            <polyline fill="none" stroke="white" strokeLinecap="round" strokeLinejoin="round"
+                                      strokeWidth="12" points="231.988 216 175.988 104 119.988 216"></polyline>
+                            <line x1="135.988" x2="215.988" y1="184" y2="184" fill="none" stroke="white"
+                                  strokeLinecap="round" strokeLinejoin="round" strokeWidth="12"></line>
+                            <line x1="87.988" x2="87.988" y1="32" y2="56" fill="none" stroke="white"
+                                  strokeLinecap="round" strokeLinejoin="round" strokeWidth="12"></line>
+                            <line x1="23.988" x2="151.988" y1="56" y2="56" fill="none" stroke="white"
+                                  strokeLinecap="round" strokeLinejoin="round" strokeWidth="12"></line>
+                            <path fill="none" stroke="white" strokeLinecap="round" strokeLinejoin="round"
+                                  strokeWidth="12"
+                                  d="M119.98828 56a96 96 0 0 1-96 96M61.4571 88.00088a96.03987 96.03987 0 0 0 90.52532 63.9658"></path>
+                        </svg>
                     <motion.img src={search}/>
                     <motion.img src={account}/>
                     <motion.button>{"Купить билет"}</motion.button>
@@ -98,11 +113,11 @@ const Header = ({scrolled}: HeaderProps) => {
                                             initial={{opacity: 1, y: -30}}
                                             animate={{opacity: 1, y: -0.1}}
                                             exit={{opacity: 1, y: -30}}
-                                            transition={{ type: "tween", duration: 0.2 }}
+                                            transition={{type: "tween", duration: 0.2}}
                                             style={{backgroundColor: background, zIndex: -1}}
                                             onMouseLeave={() => setSelectedMenu(null)}
                     >
-                        {
+                    {
                             navElemenet && navElemenet.map((item, index) => <a
                                 onMouseEnter={() => item.subTitle ? setSelectedMenu(item) : setSelectedMenu(null)}
                                 key={index}
