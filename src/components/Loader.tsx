@@ -1,0 +1,25 @@
+import React from 'react';
+import styles from "styles/Loader.module.scss";
+
+interface LoaderProps {
+    progress: number; // Прогресс загрузки от 0 до 100
+    active: boolean;
+}
+
+const Loader: React.FC<LoaderProps> = ({ progress, active }) => {
+    const styless: React.CSSProperties = {
+        width: `${progress}%`,
+        height: '3px',
+        borderRadius: '1px',
+        backgroundColor: 'white',
+        transition: 'width 0.3s ease-in-out', // Добавляем анимацию при изменении ширины
+    };
+
+    return (
+        <div className={styles.root} style={active ? {width: "150px"} : {width: "50px"}}>
+            {active && <div style={styless}></div>}
+        </div>
+    );
+};
+
+export default Loader;
