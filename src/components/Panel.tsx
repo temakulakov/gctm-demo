@@ -40,13 +40,12 @@ const Panel = ({selectedMenu, setSelectedMenu, background}: PanelProps) => {
             key={selectedMenu.title}
 
             initial={{y: 10, opacity: 0, width: '97%'}}
-            animate={{y: 23, opacity: 1, width: '100%'}}
+            animate={{y: 33, opacity: 1, width: '100%'}}
             exit={{y: 10, opacity: 0, width: '97%'}}
             className={styles.wrapper}
         >
             <motion.div
                 className={styles.panel}
-                // style={{backgroundColor: "#CACBCC"}}
                 style={{backgroundColor: background === '#8A1635' ? background :'#6C192B'}}
             >
                 <div className={styles.content}>
