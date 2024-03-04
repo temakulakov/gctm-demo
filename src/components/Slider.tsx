@@ -105,12 +105,16 @@ const Slider = ({ reference }: SliderProps) => {
     return <div className={styles.root} ref={reference}>
 
         <div
+            onClick={() => {
+                setSlider(prevProgress => {
+                    if (prevProgress.id === 0) {
+                        return data[data.length - 1]
+                    }
+                    return data[prevProgress.id - 1];
+                });
+            }}
             className={styles.controlsLeft}
             style={{marginLeft: "20px"}}
-            onClick={() => {
-
-                setSlider(prevProgress => data[prevProgress.id + 1]);
-            }}
         >
             <svg style={{transform: 'rotate(90deg)'}} xmlns="http://www.w3.org/2000/svg" width="27px" height="27px"
                  fill="none"
@@ -119,7 +123,17 @@ const Slider = ({ reference }: SliderProps) => {
                 <path d="m6 9 6 6 6-6"></path>
             </svg>
         </div>
-        <div className={styles.controlsLeft} style={{right: 0, marginRight: "20px"}}>
+        <div
+            onClick={() => {
+                setSlider(prevProgress => {
+                    if (prevProgress.id === data.length - 1) {
+                        return data[0]
+                    }
+                    return data[prevProgress.id + 1];
+                });
+            }}
+            className={styles.controlsLeft}
+            style={{right: 0, marginRight: "20px"}}>
             <svg style={{transform: 'rotate(270deg)'}} xmlns="http://www.w3.org/2000/svg" width="27px" height="27px"
                  fill="none"
                  stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
