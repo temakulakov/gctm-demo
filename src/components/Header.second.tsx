@@ -6,6 +6,8 @@ import BMLogoLeft from "uploads/logo/BMLogoLeft.svg";
 import BMLogoLine from "uploads/logo/BMLogoLine.svg";
 import BMLogoRight from "uploads/logo/BMLogoRight.svg";
 import BMText from "uploads/logo/BMText.svg";
+import account from "uploads/icons/account.svg"
+import search from "uploads/icons/search.svg"
 
 import { navElemenet } from "../data";
 import {INavElemenet} from "../types/INavElements";
@@ -16,10 +18,10 @@ interface HeaderProps {
     scrolled: boolean
 }
 
-const Header = ({scrolled} :HeaderProps) => {
+const Header = ({scrolled}: HeaderProps) => {
     const [ fullHead, setFullHead ] = React.useState<boolean>(true);
-    const [ background, setBackground ] = React.useState<'#8A1635' | 'rgba(138,22,53,0.52)'>('rgba(138,22,53,0.52)');
-    const [ selectedMenu, setSelectedMenu ] = React.useState<INavElemenet | null>(null);
+    const [ background, setBackground ] = React.useState<'#8A1635' | '#8A1635'>('#8A1635');
+    const [ selectedMenu, setSelectedMenu ] = React.useState<INavElemenet | null>(navElemenet[0]);
     const { scrollY, direction} = useScrollPosition();
 
     useEffect(() => {
@@ -33,7 +35,7 @@ const Header = ({scrolled} :HeaderProps) => {
         if (scrolled) {
             setBackground('#8A1635');
         } else {
-            setBackground('rgba(138,22,53,0.52)');
+            setBackground('#8A1635');
         }
     }, [scrollY]);
 
@@ -82,6 +84,8 @@ const Header = ({scrolled} :HeaderProps) => {
                 </motion.a>
                 <motion.div
                     className={styles.buttonGroup}>
+                    <motion.img src={search}/>
+                    <motion.img src={account}/>
                     <motion.button>{"Купить билет"}</motion.button>
                     <motion.button>{"Магазин"}</motion.button>
                 </motion.div>

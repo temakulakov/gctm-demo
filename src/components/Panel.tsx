@@ -47,7 +47,7 @@ const Panel = ({selectedMenu, setSelectedMenu, background}: PanelProps) => {
                 className={styles.panel}
                 style={{backgroundColor: background}}
             >
-                <div style={{display: 'flex'}}>
+                <div className={styles.content}>
                     <ul>
                         {
                             selectedMenu && selectedMenu.subTitle?.map((subTitle, index) => <li

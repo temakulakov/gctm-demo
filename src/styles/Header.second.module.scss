@@ -46,6 +46,7 @@
 
 .buttonGroup {
   display: flex;
+  align-items: center;
   button {
     border: none;
     border-radius: 5px;
@@ -53,8 +54,15 @@
     padding: 10px 12px;
     background-color: #E4DACA;
     cursor: pointer;
-    &:last-child {
-      margin-left: 10px;
+    margin-left: 10px;
+
+  }
+  img {
+    height: 32px;
+    margin: 0 5px;
+
+    &:first-child {
+      height: 29px;
     }
   }
 }
