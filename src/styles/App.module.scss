@@ -3,15 +3,19 @@
   justify-content: center;
   width: 100vw;
   max-width: 2400px;
-  background: white;
+  background: #EEEEEF;
   height: 300vh;
   margin: 0 auto;
+
 }
 
 .container {
   display: flex;
   flex-direction: column;
 
-  width: 90%;
+  width: calc(90% + 28px);
   margin: 0 auto;
+  img {
+    width: 100%;
+  }
 }

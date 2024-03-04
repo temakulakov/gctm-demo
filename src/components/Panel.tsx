@@ -47,7 +47,7 @@ const Panel = ({selectedMenu, setSelectedMenu, background}: PanelProps) => {
             <motion.div
                 className={styles.panel}
                 // style={{backgroundColor: "#CACBCC"}}
-                style={{backgroundColor: background}}
+                style={{backgroundColor: background === '#8A1635' ? background :'#6C192B'}}
             >
                 <div className={styles.content}>
                     <ul>

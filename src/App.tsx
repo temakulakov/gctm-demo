@@ -7,6 +7,9 @@ import HeaderSecond from "./components/Header.second";
 
 import { motion } from "framer-motion";
 
+import c1 from "uploads/mvp/с1.png";
+import c2 from "uploads/mvp/с2.png";
+
 function App() {
     const bottomRef = useRef<HTMLDivElement>(null);
     const [bottomPosition, setBottomPosition] = useState<number>(0);
@@ -49,8 +52,8 @@ function App() {
             animate={{ opacity: 1, y: -10 }}
             exit={{ opacity: 0, y: -10 }}
         >
-            <h1>Текст текст текст</h1>
-            <p>Little маленький Текст текст текст</p>
+            <img src={c1}/>
+            <img src={c2}/>
         </motion.div>
     </div>
   );

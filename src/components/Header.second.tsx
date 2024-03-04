@@ -21,7 +21,7 @@ interface HeaderProps {
 const Header = ({scrolled}: HeaderProps) => {
     const [ fullHead, setFullHead ] = React.useState<boolean>(true);
     const [ background, setBackground ] = React.useState<'#8A1635' | 'rgba(138,22,53,0.69)'>('rgba(138,22,53,0.69)');
-    const [ selectedMenu, setSelectedMenu ] = React.useState<INavElemenet | null>(null);
+    const [ selectedMenu, setSelectedMenu ] = React.useState<INavElemenet | null>(navElemenet[0]);
     const { scrollY, direction} = useScrollPosition();
 
     useEffect(() => {
@@ -108,7 +108,7 @@ const Header = ({scrolled}: HeaderProps) => {
                                 key={index}
                                 href={"#"}>
                                 {item.title}
-                                {item.subTitle && <svg  xmlns="http://www.w3.org/2000/svg" width={"14px"} fill="none" stroke="currentColor"
+                                {item.subTitle && <svg  xmlns="http://www.w3.org/2000/svg" width={"14px"} height={"19px"} fill="none" stroke="currentColor"
                                                       strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
                                                       viewBox="0 0 24 24">
                                     <path d="m6 9 6 6 6-6"></path>
