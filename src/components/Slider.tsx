@@ -234,21 +234,21 @@ const Slider = ({reference}: SliderProps) => {
         </motion.div>,
     ]
 
-    useEffect(() => {
-        const timer = setInterval(() => {
-            if (progress < 100) {
-                setProgress(prevProgress => prevProgress + 1);
-            } else {
-                setProgress(0);
-                if (slider.id === data.length - 1) {
-                    setSlider(data[0]);
-                } else {
-                    setSlider(prevProgress => data[prevProgress.id + 1]);
-                }
-            }
-        }, 200); // уменьшаем интервал для инкрементации чаще
-        return () => clearInterval(timer);
-    }, [progress]);
+    // useEffect(() => {
+    //     const timer = setInterval(() => {
+    //         if (progress < 100) {
+    //             setProgress(prevProgress => prevProgress + 1);
+    //         } else {
+    //             setProgress(0);
+    //             if (slider.id === data.length - 1) {
+    //                 setSlider(data[0]);
+    //             } else {
+    //                 setSlider(prevProgress => data[prevProgress.id + 1]);
+    //             }
+    //         }
+    //     }, 200); // уменьшаем интервал для инкрементации чаще
+    //     return () => clearInterval(timer);
+    // }, [progress]);
     return <div className={styles.root} ref={reference}>
         <div
             onClick={() => {
@@ -298,12 +298,12 @@ const Slider = ({reference}: SliderProps) => {
             sliderrs[slider.id]
         }
 
-        <div className={styles.indicators}>
-            {
-                data.map((item, index) => <Loader key={index} keyy={index} progress={progress}
-                                                  active={item.id === slider.id ? true : false} slider={slider}/>)
-            }
-        </div>
+        {/*<div className={styles.indicators}>*/}
+        {/*    {*/}
+        {/*        data.map((item, index) => <Loader key={index} keyy={index} progress={progress}*/}
+        {/*                                          active={item.id === slider.id ? true : false} slider={slider}/>)*/}
+        {/*    }*/}
+        {/*</div>*/}
         <motion.img
             initial={{opacity: 0, y: 110}}
             animate={{opacity: 1, y: 0}}
