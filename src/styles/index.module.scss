@@ -13,42 +13,77 @@ a {
 }
 
 h1, h2, h3 {
-  font-family: 'TT Nooks Script', sans-serif;
+  font-family: 'TT Nooks', sans-serif;
+  //font-weight: light;
 }
 
 // TT Nooks Script
 
 @font-face {
-  font-family: 'TT Nooks Script';
-  src: local('../uploads/fonts/TTNooksScript/TTNooksScript-Bold.otf'), local('../uploads/fonts/TTNooksScript/TTNooksScript-Bold.otf'),
-  url('../uploads/fonts/TTNooksScript/TTNooksScript-Bold.otf') format('otf');
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'TT Nooks Script';
-  src: local('TT Nooks Script Bold'), local('TTNooksScript-Black'),
-  url('../uploads/fonts/TTNooksScript/TTNooksScript-Black.otf') format('otf');
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'TT Nooks Script';
-  src: local('TT Nooks Script Bold'), local('TTNooksScript-Light'),
-  url('../uploads/fonts/TTNooksScript/TTNooksScript-Light.otf') format('otf');
-  font-weight: 200;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'TT Nooks Script';
-  src: local('TT Nooks Script Bold'), local('TTNooksScript-Regular'),
-  url('../uploads/fonts/TTNooksScript/TTNooksScript-Regular.otf') format('otf');
+  font-family: 'TT Nooks';
+  src: local('TT Nooks Script Light'), local('TTNooksScript-Light'),
+  url('../uploads/fonts/TTNooksScript/TTNooks-Black.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'TT Nooks';
+  src: local('TT Nooks Script Black'), local('TTNooksScript-Black'),
+  url('../uploads/fonts/TTNooksScript/TTNooks-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'TT Nooks';
+  src: local('TT Nooks'), local('TTNooks-Regular'),
+  url('../uploads/fonts/TTNooksScript/TTNooks-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'TT Nooks';
+  src: local('TT Nooks'), local('TTNooks-Light'),
+  url('../uploads/fonts/TTNooksScript/TTNooks-Regular.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'TTNooksScript';
+  src: local('TT Nooks Script Regular'), local('TTNooksScript-Regular'),
+  url('../uploads/fonts/TTNooksScript/TTNooksScript-Black.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'TTNooksScript';
+  src: local('TT Nooks Bold'), local('TTNooks-Bold'),
+  url('../uploads/fonts/TTNooksScript/TTNooksScript-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'TTNooksScript';
+  src: local('TT Nooks Script Bold'), local('TTNooksScript-Bold'),
+  url('../uploads/fonts/TTNooksScript/TTNooksScript-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'TTNooksScript';
+  src: local('TT Nooks Black'), local('TTNooks-Black'),
+  url('../uploads/fonts/TTNooksScript/TTNooksScript-Regular.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+
 
 
 // TT Norms Pro

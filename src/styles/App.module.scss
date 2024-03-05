@@ -4,9 +4,14 @@
   width: 100vw;
   max-width: 2400px;
   background: #EEEEEF;
-  height: 300vh;
+  height: fit-content;
   margin: 0 auto;
-
+  /*
+ * Created with https://www.css-gradient.com
+ * Gradient link: https://www.css-gradient.com/?c1=ffffff&c2=54565a&gt=l&gd=dtt
+ */
+  background: rgb(84,86,90);
+  background: linear-gradient(0deg, rgba(84,86,90,1) 0%, rgba(84,86,90,1) 20%, rgba(242,242,242,1) 40%);
 }
 
 .container {
