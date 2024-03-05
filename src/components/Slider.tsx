@@ -2,7 +2,11 @@ import React, {RefObject, useEffect, useState} from 'react';
 import styles from "styles/Slider.module.scss";
 import VideoBackground from "./VideoBackground";
 import Loader from "./Loader";
-import { motion } from "framer-motion";
+import {AnimatePresence, motion} from "framer-motion";
+
+import  slider2  from "uploads/sliders/slider2.jpg"
+import  slider3  from "uploads/sliders/slider3.jpg"
+import  slider4  from "uploads/sliders/slider4.webp"
 
 interface SliderProps {
     reference:  RefObject<HTMLDivElement>;
@@ -51,7 +55,7 @@ const data: IData[] = [
         },
         background: {
             type: "image",
-            href: "https://um.mos.ru/upload/iblock/0b1/vn(8614).jpg"
+            href: slider2
         }
     },
     {
@@ -64,7 +68,7 @@ const data: IData[] = [
         },
         background: {
             type: "image",
-            href: "https://office-news.ru/wp-content/uploads/2020/06/header-89.jpg"
+            href: slider3
         }
     },
     {
@@ -77,7 +81,7 @@ const data: IData[] = [
         },
         background: {
             type: "image",
-            href: "https://cdnn21.img.ria.ru/images/07e4/06/16/1573303557_0:0:3072:1728_1920x0_80_0_0_ad87aee6f8ffce4928f310fc249ba5e6.jpg.webp"
+            href: slider4
         }
     },
 ]
@@ -85,6 +89,7 @@ const data: IData[] = [
 const Slider = ({ reference }: SliderProps) => {
     const [progress, setProgress] = useState(0);
     const [slider, setSlider] = useState<IData>(data[0]);
+    const [direction, setDirection] = useState<"left" | "right">("right");
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -103,15 +108,16 @@ const Slider = ({ reference }: SliderProps) => {
         return () => clearInterval(timer);
     }, [progress]);
     return <div className={styles.root} ref={reference}>
-
         <div
             onClick={() => {
+                setDirection('left');
                 setSlider(prevProgress => {
                     if (prevProgress.id === 0) {
                         return data[data.length - 1]
                     }
                     return data[prevProgress.id - 1];
                 });
+                setProgress(0);
             }}
             className={styles.controlsLeft}
             style={{marginLeft: "20px"}}
@@ -125,13 +131,17 @@ const Slider = ({ reference }: SliderProps) => {
         </div>
         <div
             onClick={() => {
+                setDirection('right');
+
                 setSlider(prevProgress => {
                     if (prevProgress.id === data.length - 1) {
                         return data[0]
                     }
                     return data[prevProgress.id + 1];
                 });
-            }}
+                setProgress(0);
+            }
+        }
             className={styles.controlsLeft}
             style={{right: 0, marginRight: "20px"}}>
             <svg style={{transform: 'rotate(270deg)'}} xmlns="http://www.w3.org/2000/svg" width="27px" height="27px"
@@ -141,13 +151,82 @@ const Slider = ({ reference }: SliderProps) => {
                 <path d="m6 9 6 6 6-6"></path>
             </svg>
         </div>
-        <motion.div>
 
-        </motion.div>
+            {slider.background.type === 'video' && <AnimatePresence>
+                <motion.div
+                    style={{
+                        position: 'relative',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '100%',
+                        overflow: 'hidden',
+                    }}
+                    initial={{opacity: 1, x: direction === 'right' ? 440 : -440}}
+                    animate={{opacity: 1, x: 0}}
+                    exit={{opacity: 1, x: direction === 'right' ? -440 : 440}}
+                >
+                    <motion.video
+                        autoPlay
+                        loop
+                        muted
+                        style={{
+                            zIndex: 1,
+                            position: 'absolute',
+                            minWidth: '100%',
+                            minHeight: '100%',
+                            width: 'auto',
+                            height: 'auto',
+                            top: '50%',
+                            left: '50%',
+                            transform: 'translate(-50%, -50%)',
+                        }}
+                        initial={{opacity: 0}}
+                        animate={{opacity: 1}}
+                        exit={{opacity: 0}}
+                    >
+                        <source src="https://www.gctm.ru/img/promo.mp4" type="video/mp4"/>
+                        Your browser does not support the video tag.
+                    </motion.video>
+                </motion.div>
+            </AnimatePresence>
+            }
+        {slider.background.type === 'image' && <AnimatePresence>
+            <motion.div
+                key={slider.id}
+                initial={{opacity: 0, x: direction === 'right' ? 440 : -440}}
+                animate={{opacity: 1, x: 0}}
+                exit={{opacity: 0, x: direction === 'right' ? -440 : 440}}
+                style={{
+                    position: 'relative',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    overflow: 'hidden',
+                    backgroundImage: `url(${slider.background.href})`,
+                    backgroundSize: 'cover'
+                }}
+            >
+                <div className={styles.slider} style={{
+                    position: 'absolute',
+                    width: '100%',
+                    height: '100%',
+                }}>
+                    <div>
+                        <h1>{slider.title}</h1>
+                        <h3>{slider.description}</h3>
+                        <a href={slider.button.href}>{slider.button.title}</a>
+                    </div>
+                </div>
+            </motion.div>
+        </AnimatePresence>
+        }
+
         <div className={styles.indicators}>
             {
-                data.map((item, index) => <Loader key={index} progress={progress}
-                                                  active={item.id === slider.id ? true : false}/>)
+                data.map((item, index) => <Loader key={index} keyy={index} progress={progress}
+                                                  active={item.id === slider.id ? true : false} slider={slider}/>)
             }
         </div>
     </div>

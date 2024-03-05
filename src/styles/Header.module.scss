@@ -5,9 +5,9 @@
   border-radius: 8px;
   position: fixed;
   top: 10px;
-  z-index: 10;
   display: flex;
   padding: 0 14px;
+  z-index: 212;
 }
 
 .logo {
@@ -16,6 +16,8 @@
   img {
     width: 220px;
   }
+  z-index: 212;
+
 }
 
 .nav {
@@ -29,6 +31,7 @@
   display: flex;
   padding: 0 14px;
   display: flex;
+  z-index: 212;
   a {
     color: white;
     padding: 0 4px;

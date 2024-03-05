@@ -9,6 +9,7 @@
 }
 
 .controlsLeft {
+  z-index: 111;
   position: absolute;
   height: 50px;
   width: 50px;
@@ -58,6 +59,7 @@
 }
 
 .loader {
+  z-index: 111;
   position: absolute;
   margin-right: auto;
   margin-left: auto;
@@ -72,6 +74,8 @@
 }
 
 .indicators {
+  z-index: 111;
+
   position: absolute;
   width: 400px;
   left: 0;
@@ -83,5 +87,21 @@
 
   > div {
     margin: 0 3px;
+  }
+}
+
+.slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.26);
+  color: white;
+
+  a {
+    background-color: rgba(255, 255, 255, 0.06);
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1.2px solid white;
   }
 }
