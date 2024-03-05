@@ -29,7 +29,7 @@
   left: 0;
   right: 0;
 
-  //transition: background-color .1s ease-in-out;
+  transition: background, background-color .4s ease-in-out;
 }
 
 .logoWrapper {
@@ -90,6 +90,8 @@
   margin-right: auto;
   left: 0;
   right: 0;
+
+  transition: background, background-color .4s ease-in-out;
   a {
     display: flex;
     padding: 5px 10px;
