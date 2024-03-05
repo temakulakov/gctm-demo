@@ -84,12 +84,153 @@ const data: IData[] = [
             href: slider4
         }
     },
-]
+];
 
-const Slider = ({ reference }: SliderProps) => {
+
+
+const Slider = ({reference}: SliderProps) => {
     const [progress, setProgress] = useState(0);
     const [slider, setSlider] = useState<IData>(data[0]);
     const [direction, setDirection] = useState<"left" | "right">("right");
+
+    const sliderrs  = [
+        <motion.div
+            style={{
+                position: 'relative',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                overflow: 'hidden',
+            }}
+            initial={{opacity: 1, x: direction === 'right' ? -440 : 440}}
+            animate={{opacity: 1, x: 0}}
+            exit={{opacity: 1, x: direction === 'right' ? 440 : -440}}
+            transition={{
+                x: { type: "spring", stiffness: 300, damping: 30 },
+                opacity: { duration: 0.2 }
+            }}
+        >
+            <motion.video
+                autoPlay
+                loop
+                muted
+                style={{
+                    zIndex: 1,
+                    position: 'absolute',
+                    minWidth: '100%',
+                    minHeight: '100%',
+                    width: 'auto',
+                    height: 'auto',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                }}
+                initial={{opacity: 0}}
+                animate={{opacity: 1}}
+                exit={{opacity: 0}}
+            >
+                <source src="https://www.gctm.ru/img/promo.mp4" type="video/mp4"/>
+                Your browser does not support the video tag.
+            </motion.video>
+        </motion.div>,
+        <motion.div
+            key={data[1].id}
+            initial={{opacity: 1, x: direction === 'right' ? '100%' : '-100%'}}
+            animate={{opacity: 1, x: 0}}
+            exit={{opacity: 1, x: direction === 'right' ? '-100%' : '100%'}}
+            transition={{
+                x: { type: "spring", stiffness: 300, damping: 30 },
+                opacity: { duration: 0.2 }
+            }}
+            style={{
+                position: 'relative',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                overflow: 'hidden',
+                backgroundImage: `url(${data[1].background.href})`,
+                backgroundSize: 'cover'
+            }}
+        >
+            <div className={styles.slider} style={{
+                position: 'absolute',
+                width: '100%',
+                height: '100%',
+            }}>
+                <div>
+                    <h1>{data[1].title}</h1>
+                    <h3>{data[1].description}</h3>
+                    <a href={data[1].button.href}>{data[1].button.title}</a>
+                </div>
+            </div>
+        </motion.div>,
+        <motion.div
+            key={data[2].id}
+            initial={{opacity: 1, x: direction === 'right' ? '100%' : '-100%'}}
+            animate={{opacity: 1, x: 0}}
+            exit={{opacity: 1, x: direction === 'right' ? '-100%' : '100%'}}
+            style={{
+                position: 'relative',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                overflow: 'hidden',
+                backgroundImage: `url(${data[2].background.href})`,
+                backgroundSize: 'cover'
+            }}
+            transition={{
+                x: { type: "spring", stiffness: 300, damping: 30 },
+                opacity: { duration: 0.2 }
+            }}
+        >
+            <div className={styles.slider} style={{
+                position: 'absolute',
+                width: '100%',
+                height: '100%',
+            }}>
+                <div>
+                    <h1>{data[2].title}</h1>
+                    <h3>{data[2].description}</h3>
+                    <a href={data[2].button.href}>{data[2].button.title}</a>
+                </div>
+            </div>
+        </motion.div>,
+        <motion.div
+            key={data[3].id}
+            initial={{opacity: 1, x: direction === 'right' ? '100%' : '-100%'}}
+            animate={{opacity: 1, x: 0}}
+            exit={{opacity: 1, x: direction === 'right' ? '-100%' : '100%'}}
+            style={{
+                position: 'relative',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                overflow: 'hidden',
+                backgroundImage: `url(${data[3].background.href})`,
+                backgroundSize: 'cover'
+            }}
+            transition={{
+                x: { type: "spring", stiffness: 300, damping: 30 },
+                opacity: { duration: 0.2 }
+            }}
+        >
+            <div className={styles.slider} style={{
+                position: 'absolute',
+                width: '100%',
+                height: '100%',
+            }}>
+                <div>
+                    <h1>{data[3].title}</h1>
+                    <h3>{data[3].description}</h3>
+                    <a href={data[3].button.href}>{data[3].button.title}</a>
+                </div>
+            </div>
+        </motion.div>,
+    ]
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -152,75 +293,8 @@ const Slider = ({ reference }: SliderProps) => {
             </svg>
         </div>
 
-            {slider.background.type === 'video' && <AnimatePresence>
-                <motion.div
-                    style={{
-                        position: 'relative',
-                        top: 0,
-                        left: 0,
-                        width: '100%',
-                        height: '100%',
-                        overflow: 'hidden',
-                    }}
-                    initial={{opacity: 1, x: direction === 'right' ? 440 : -440}}
-                    animate={{opacity: 1, x: 0}}
-                    exit={{opacity: 1, x: direction === 'right' ? -440 : 440}}
-                >
-                    <motion.video
-                        autoPlay
-                        loop
-                        muted
-                        style={{
-                            zIndex: 1,
-                            position: 'absolute',
-                            minWidth: '100%',
-                            minHeight: '100%',
-                            width: 'auto',
-                            height: 'auto',
-                            top: '50%',
-                            left: '50%',
-                            transform: 'translate(-50%, -50%)',
-                        }}
-                        initial={{opacity: 0}}
-                        animate={{opacity: 1}}
-                        exit={{opacity: 0}}
-                    >
-                        <source src="https://www.gctm.ru/img/promo.mp4" type="video/mp4"/>
-                        Your browser does not support the video tag.
-                    </motion.video>
-                </motion.div>
-            </AnimatePresence>
-            }
-        {slider.background.type === 'image' && <AnimatePresence>
-            <motion.div
-                key={slider.id}
-                initial={{opacity: 0, x: direction === 'right' ? 440 : -440}}
-                animate={{opacity: 1, x: 0}}
-                exit={{opacity: 0, x: direction === 'right' ? -440 : 440}}
-                style={{
-                    position: 'relative',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
-                    overflow: 'hidden',
-                    backgroundImage: `url(${slider.background.href})`,
-                    backgroundSize: 'cover'
-                }}
-            >
-                <div className={styles.slider} style={{
-                    position: 'absolute',
-                    width: '100%',
-                    height: '100%',
-                }}>
-                    <div>
-                        <h1>{slider.title}</h1>
-                        <h3>{slider.description}</h3>
-                        <a href={slider.button.href}>{slider.button.title}</a>
-                    </div>
-                </div>
-            </motion.div>
-        </AnimatePresence>
+        {
+            sliderrs[slider.id]
         }
 
         <div className={styles.indicators}>
