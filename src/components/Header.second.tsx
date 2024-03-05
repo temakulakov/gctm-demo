@@ -89,6 +89,12 @@ const Header = ({scrolled}: HeaderProps) => {
                 </motion.a>
                 <motion.div
                     className={styles.buttonGroup}>
+                    <motion.button>{"Магазин"}</motion.button>
+                    <motion.button style={{marginRight: "10px"}}>{"Купить билет"}</motion.button>
+                    <motion.img src={account}/>
+                    <motion.img src={search}/>
+                    <motion.img src={eye}/>
+
                     <button className={styles.language}>{"РУС"}
                         <svg xmlns="http://www.w3.org/2000/svg" width={"14px"} height={"19px"} fill="none"
                              stroke="currentColor"
@@ -98,7 +104,6 @@ const Header = ({scrolled}: HeaderProps) => {
                         </svg>
                     </button>
 
-                    <motion.img src={eye}/>
                     {/*<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" id="translate" width={"34px"}*/}
                     {/*     height={"34px"} className={styles.svggs}>*/}
                     {/*    <rect width="256" height="256" fill="none"></rect>*/}
@@ -114,10 +119,6 @@ const Header = ({scrolled}: HeaderProps) => {
                     {/*          strokeWidth="12"*/}
                     {/*          d="M119.98828 56a96 96 0 0 1-96 96M61.4571 88.00088a96.03987 96.03987 0 0 0 90.52532 63.9658"></path>*/}
                     {/*</svg>*/}
-                    <motion.img src={search}/>
-                    <motion.img src={account}/>
-                    <motion.button>{"Купить билет"}</motion.button>
-                    <motion.button>{"Магазин"}</motion.button>
                 </motion.div>
             </motion.div>
             <AnimatePresence>
