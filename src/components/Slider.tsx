@@ -8,6 +8,8 @@ import  slider2  from "uploads/sliders/slider2.jpeg"
 import  slider3  from "uploads/sliders/slider3.jpeg"
 import  slider4  from "uploads/sliders/slider4.jpeg"
 
+import filials from "uploads/filials.png";
+
 interface SliderProps {
     reference:  RefObject<HTMLDivElement>;
 }
@@ -107,8 +109,8 @@ const Slider = ({reference}: SliderProps) => {
             animate={{opacity: 1, x: 0}}
             exit={{opacity: 1, x: direction === 'right' ? 440 : -440}}
             transition={{
-                x: { type: "spring", stiffness: 300, damping: 30 },
-                opacity: { duration: 0.2 }
+                x: { type: "easy" },
+                opacity: { duration: 0.1 }
             }}
         >
             <motion.video
@@ -141,7 +143,7 @@ const Slider = ({reference}: SliderProps) => {
             exit={{opacity: 1, x: direction === 'right' ? '-100%' : '100%'}}
             transition={{
                 x: { type: "spring", stiffness: 300, damping: 30 },
-                opacity: { duration: 0.2 }
+                opacity: { duration: 0.1 }
             }}
             style={{
                 position: 'relative',
@@ -183,7 +185,7 @@ const Slider = ({reference}: SliderProps) => {
             }}
             transition={{
                 x: { type: "spring", stiffness: 300, damping: 30 },
-                opacity: { duration: 0.2 }
+                opacity: { duration: 0.1 }
             }}
         >
             <div className={styles.slider} style={{
@@ -215,7 +217,7 @@ const Slider = ({reference}: SliderProps) => {
             }}
             transition={{
                 x: { type: "spring", stiffness: 300, damping: 30 },
-                opacity: { duration: 0.2 }
+                opacity: { duration: 0.1 }
             }}
         >
             <div className={styles.slider} style={{
@@ -237,7 +239,6 @@ const Slider = ({reference}: SliderProps) => {
             if (progress < 100) {
                 setProgress(prevProgress => prevProgress + 1);
             } else {
-                console.log('Значение достигло 100');
                 setProgress(0);
                 if (slider.id === data.length - 1) {
                     setSlider(data[0]);
@@ -303,6 +304,9 @@ const Slider = ({reference}: SliderProps) => {
                                                   active={item.id === slider.id ? true : false} slider={slider}/>)
             }
         </div>
+        <img style={{position: "absolute", top: 0, left: 0, width: '100%', height: '100%', zIndex: 40}} src={filials}>
+
+        </img>
     </div>
 };
 

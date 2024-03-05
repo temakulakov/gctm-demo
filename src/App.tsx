@@ -37,8 +37,6 @@ function App() {
     }, []);
 
     useEffect(() => {
-        console.log("--")
-        console.log(bottomPosition)
         if (bottomPosition > 100) {
             setScolled(false);
         } else {
@@ -56,8 +54,10 @@ function App() {
             animate={{ opacity: 1, y: -10 }}
             exit={{ opacity: 0, y: -10 }}
         >
-            <img src={c1}/>
-            <img src={c2}/>
+
+
+            {/*<img src={c1}/>*/}
+            {/*<img src={c2}/>*/}
         </motion.div>
     </div>
   );

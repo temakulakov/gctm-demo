@@ -27,9 +27,6 @@ const Panel = ({selectedMenu, setSelectedMenu, background}: PanelProps) => {
         }
     }, [selectedMenu]);
 
-    useEffect(() => {
-        // console.log(selectedPanelMenu);
-    }, [selectedPanelMenu]);
 
     return <AnimatePresence>
         {selectedMenu && <motion.div
@@ -87,7 +84,6 @@ const Panel = ({selectedMenu, setSelectedMenu, background}: PanelProps) => {
                     >
                         {
                             selectedPanelMenu && selectedPanelMenu.subTitle?.map((subTitle, index) => {
-                                console.log(subTitle);
 
                                 return <li key={index}
                                            onMouseEnter={() => setSelectedSecondMenu(subTitle)}
