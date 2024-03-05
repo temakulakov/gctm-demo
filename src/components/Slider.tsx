@@ -224,8 +224,9 @@ const Slider = ({reference}: SliderProps) => {
                 position: 'absolute',
                 width: '100%',
                 height: '100%',
+                zIndex: 100,
             }}>
-                <div>
+                <div style={{zIndex: 100,}}>
                     <h1>{data[3].title}</h1>
                     <h3>{data[3].description}</h3>
                     <a href={data[3].button.href}>{data[3].button.title}</a>
@@ -305,9 +306,10 @@ const Slider = ({reference}: SliderProps) => {
         {/*    }*/}
         {/*</div>*/}
         <motion.img
+            draggable="false"
             initial={{opacity: 0, y: 110}}
             animate={{opacity: 1, y: 0}}
-            style={{position: "absolute", top: 0, left: 0, width: '100%', height: '100%', zIndex: 99}} src={filials}>
+            style={{position: "absolute", top: 0, left: 0, width: '100%', height: '100%', zIndex: 1}} src={filials}>
         </motion.img>
     </div>
 };

@@ -70,7 +70,6 @@ const HeaderFirst = () => {
                 <motion.div className={styles.buttons}>
                     <motion.button>{"Купить билет"}</motion.button>
                     <motion.button>{"Магазин"}</motion.button>
-
                 </motion.div>
             </motion.div>
             <motion.div
