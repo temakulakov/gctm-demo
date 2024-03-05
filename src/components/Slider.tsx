@@ -304,9 +304,11 @@ const Slider = ({reference}: SliderProps) => {
                                                   active={item.id === slider.id ? true : false} slider={slider}/>)
             }
         </div>
-        <img style={{position: "absolute", top: 0, left: 0, width: '100%', height: '100%', zIndex: 40}} src={filials}>
-
-        </img>
+        <motion.img
+            initial={{opacity: 0, y: 110}}
+            animate={{opacity: 1, y: 0}}
+            style={{position: "absolute", top: 0, left: 0, width: '100%', height: '100%', zIndex: 99}} src={filials}>
+        </motion.img>
     </div>
 };
 
