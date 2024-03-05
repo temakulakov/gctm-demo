@@ -4,9 +4,9 @@ import VideoBackground from "./VideoBackground";
 import Loader from "./Loader";
 import {AnimatePresence, motion} from "framer-motion";
 
-import  slider2  from "uploads/sliders/slider2.jpg"
-import  slider3  from "uploads/sliders/slider3.jpg"
-import  slider4  from "uploads/sliders/slider4.webp"
+import  slider2  from "uploads/sliders/slider2.jpeg"
+import  slider3  from "uploads/sliders/slider3.jpeg"
+import  slider4  from "uploads/sliders/slider4.jpeg"
 
 interface SliderProps {
     reference:  RefObject<HTMLDivElement>;

@@ -23,7 +23,7 @@ interface HeaderProps {
 const Header = ({scrolled}: HeaderProps) => {
     const [ fullHead, setFullHead ] = React.useState<boolean>(true);
     const [ background, setBackground ] = React.useState<'#8A1635' | 'rgba(138,22,53,0.69)'>('rgba(138,22,53,0.69)');
-    const [ selectedMenu, setSelectedMenu ] = React.useState<INavElemenet | null>(null);
+    const [ selectedMenu, setSelectedMenu ] = React.useState<INavElemenet | null>(navElemenet[0]);
     const { scrollY, direction} = useScrollPosition();
 
     useEffect(() => {
