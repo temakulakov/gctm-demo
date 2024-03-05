@@ -46,7 +46,7 @@ const Panel = ({selectedMenu, setSelectedMenu, background}: PanelProps) => {
         >
             <motion.div
                 className={styles.panel}
-                style={{backgroundColor: background === '#8A1635' ? background :'#6C192B'}}
+                style={{backgroundColor: background === '#8A1635' ? background : '#6C192B'}}
             >
                 <div className={styles.content}>
                     <ul>
@@ -61,7 +61,8 @@ const Panel = ({selectedMenu, setSelectedMenu, background}: PanelProps) => {
                             >{subTitle.title}
                                 {
                                     subTitle.subTitle &&
-                                    <svg style={{ transform: 'rotate(270deg)'}} xmlns="http://www.w3.org/2000/svg" width="14px" height="19px" fill="none"
+                                    <svg style={{transform: 'rotate(270deg)'}} xmlns="http://www.w3.org/2000/svg"
+                                         width="14px" height="19px" fill="none"
                                          stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
                                          viewBox="0 0 24 24">
                                         <path d="m6 9 6 6 6-6"></path>
@@ -74,48 +75,85 @@ const Panel = ({selectedMenu, setSelectedMenu, background}: PanelProps) => {
                     <AnimatePresence>
                         {selectedPanelMenu && selectedPanelMenu.subTitle && <>
                             <VerticalLine background={"white"}/>
-
-                            <motion.ul
-                                initial={{y: -10, opacity: 0}}
-                            animate={{y: 0, opacity: 1}}
-                            exit={{y: -10, opacity: 0}}
-                            >
-                                {
-                                    selectedPanelMenu && selectedPanelMenu.subTitle?.map((subTitle, index) => {
-                                        console.log(subTitle);
-                                        return <li key={index}
-                                                   onMouseEnter={() => setSelectedSecondMenu(subTitle)}
-                                                   onMouseLeave={() => setSelectedSecondMenu(null)}
-                                        >{subTitle.title}</li>
-                                    })
-                                }
-                            </motion.ul>
                         </>
                         }
                     </AnimatePresence>
                 </div>
-
-                <div>
-
+                <div className={styles.content}>
+                    <motion.ul
+                        initial={{y: -10, opacity: 0}}
+                        animate={{y: 0, opacity: 1}}
+                        exit={{y: -10, opacity: 0}}
+                    >
                         {
-                            !selectedSecondMenu  && selectedPanelMenu && selectedPanelMenu.imageUrl && <motion.img
-                                initial={{y: -10, opacity: 0}}
-                                animate={{y: 0, opacity: 1}}
-                                exit={{y: -10, opacity: 0}}
-                                key={selectedPanelMenu.title}
-                                src={selectedPanelMenu.imageUrl}/>
+                            selectedPanelMenu && selectedPanelMenu.subTitle?.map((subTitle, index) => {
+                                console.log(subTitle);
+
+                                return <li key={index}
+                                           onMouseEnter={() => setSelectedSecondMenu(subTitle)}
+                                           onMouseLeave={() => setSelectedSecondMenu(null)}
+                                >{subTitle.title}</li>
+                            })
                         }
-                        {
-                            selectedSecondMenu && selectedSecondMenu.imageUrl &&
-                            <motion.img
-                                initial={{y: -10, opacity: 0}}
-                                animate={{y: 0, opacity: 1}}
-                                exit={{y: -10, opacity: 0}}
-                                transition={{ stiffness: 0.1}}
-                                key={selectedSecondMenu.title}
-                                src={selectedSecondMenu.imageUrl}/>
-                        }
+                    </motion.ul>
                 </div>
+
+                    <div>
+
+                        {/*{*/}
+                        {/*    !selectedSecondMenu && selectedPanelMenu && selectedPanelMenu.imageUrl && <motion.img*/}
+                        {/*        initial={{y: -10, opacity: 0}}*/}
+                        {/*        animate={{y: 0, opacity: 1}}*/}
+                        {/*        exit={{y: -10, opacity: 0}}*/}
+                        {/*        key={selectedPanelMenu.title}*/}
+                        {/*        src={selectedPanelMenu.imageUrl}/>*/}
+                        {/*}*/}
+                        {/*{*/}
+                        {/*    selectedSecondMenu && selectedSecondMenu.imageUrl &&*/}
+                        {/*    <motion.img*/}
+                        {/*        initial={{y: -10, opacity: 0}}*/}
+                        {/*        animate={{y: 0, opacity: 1}}*/}
+                        {/*        exit={{y: -10, opacity: 0}}*/}
+                        {/*        transition={{stiffness: 0.1}}*/}
+                        {/*        key={selectedSecondMenu.title}*/}
+                        {/*        src={selectedSecondMenu.imageUrl}/>*/}
+                        {/*}*/}
+                    </div>
+
+                {
+                    !selectedSecondMenu && selectedPanelMenu && selectedPanelMenu.imageUrl &&
+                    <motion.div
+                        className={styles.preview}
+                        initial={{opacity: 0, y: -10}}
+                        animate={{y: 0, opacity: 1}}
+                        exit={{y: 10, opacity: 0}}
+                        key={selectedPanelMenu?.title}
+                    >
+                        <div>
+                            <h2>{selectedPanelMenu?.title}</h2>
+                            <p>{selectedPanelMenu?.description}</p>
+                            <button>{"Узнать подробнее"}</button>
+                        </div>
+                        <img src={selectedPanelMenu?.imageUrl} alt={selectedPanelMenu?.title}/>
+                    </motion.div>
+                }
+                {
+                    selectedSecondMenu && selectedSecondMenu.imageUrl &&
+                <motion.div
+                    className={styles.preview}
+                    initial={{opacity: 0, y: -10}}
+                    animate={{y: 0, opacity: 1}}
+                    exit={{y: 10, opacity: 0}}
+                    key={selectedSecondMenu?.title}
+                >
+                    <div>
+                        <h2>{selectedSecondMenu?.title}</h2>
+                        <p>{selectedSecondMenu?.description}</p>
+                        <button>{"Узнать подробнее"}</button>
+                    </div>
+                    <img src={selectedSecondMenu?.imageUrl} alt={selectedSecondMenu?.title}/>
+                </motion.div>
+                }
 
             </motion.div>
         </motion.div>}
