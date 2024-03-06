@@ -284,7 +284,7 @@ const Slider = ({reference}: SliderProps) => {
                 });
                 setProgress(0);
             }
-        }
+            }
             className={styles.controlsLeft}
             style={{right: 0, marginRight: "20px"}}>
             <svg style={{transform: 'rotate(270deg)'}} xmlns="http://www.w3.org/2000/svg" width="27px" height="27px"
@@ -305,12 +305,24 @@ const Slider = ({reference}: SliderProps) => {
         {/*                                          active={item.id === slider.id ? true : false} slider={slider}/>)*/}
         {/*    }*/}
         {/*</div>*/}
-        <motion.img
-            draggable="false"
-            initial={{opacity: 0, y: 110}}
-            animate={{opacity: 1, y: 0}}
-            style={{position: "absolute", top: 0, left: 0, width: '100%', height: '100%', zIndex: 1}} src={filials}>
-        </motion.img>
+        <div className={styles.imageContainer}>
+            <motion.img
+                 draggable="false"
+                 initial={{opacity: 0, y: 110}}
+                 animate={{opacity: 1, y: 0}}
+                 // style={{
+                 //     position: "absolute",
+                 //     top: 0,
+                 //     left: 0,
+                 //     width: '100%',
+                 //     minHeight: '100%',
+                 //     zIndex: 1,
+                 //     objectFit: "cover"
+                 // }}
+                 src={filials}
+                 className={styles.image}
+            />
+        </div>
     </div>
 };
 
